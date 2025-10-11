@@ -1,4 +1,4 @@
-const data={personal:{name:"GANESA",title:"Full Stack Developer",brand:"GANESA",image:"../profile.jpg",footer:"© 2025 Ganesa. All rights reserved."},
+const data={personal:{name:"GANESA",title:"Full Stack Developer",brand:"GANESA",image:"https://raw.githubusercontent.com/GANESA14/Portfolios/refs/heads/main/Profile.jpg",footer:"© 2025 Ganesa. All rights reserved."},
 about: [
   "I’m a passionate developer who loves turning ideas into interactive and impactful digital experiences. I focus on building modern, fast, and scalable web applications with clean design and smooth performance.",
   "I’m always exploring new technologies, creating unique projects, and pushing boundaries to make something extraordinary. For me, coding isn’t just work — it’s creativity, problem-solving, and pure passion."
