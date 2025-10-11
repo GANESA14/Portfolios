@@ -10,7 +10,7 @@ focus:[{icon:"fa-code",title:"Web Development",desc:"Designing and developing mo
 
 
 
-social:[{icon:"fa-whatsapp",link:"https://wa.me/9895120570",color:"#25D366"},{icon:"fa-instagram",link:"https://www.instagram.com/savage_codee?igsh=MXRkZnJjOXpoZzFnbg==",color:"#E4405F"},{icon:"fa-github",link:"https://github.com/Ganesha025",color:"#333333"},{icon:"fa-solid fa-circle-info",link:"https://in.indeed.com/profile/yourProfile",color:"#2164F3"}]};
+social:[{icon:"fa-whatsapp",link: "https://wa.me/9895120570?text=Hello%20developer%20from%20your%20portfolio",color:"#25D366"},{icon:"fa-instagram",link:"https://www.instagram.com/savage_codee?igsh=MXRkZnJjOXpoZzFnbg==",color:"#E4405F"},{icon:"fa-github",link:"https://github.com/Ganesha025",color:"#333333"},{icon:"fa-solid fa-circle-info",link:"https://in.indeed.com/profile/yourProfile",color:"#2164F3"}]};
 const themeBtn=document.getElementById('theme-btn'),body=document.body;let isDark=true;themeBtn.addEventListener('click',()=>{isDark=!isDark;body.classList.toggle('dark');body.classList.toggle('light');themeBtn.innerHTML=isDark?'<i class="fas fa-moon"></i>':'<i class="fas fa-sun"></i>'});
 document.getElementById('nav-brand').textContent=data.personal.brand;document.getElementById('profile-img').src=data.personal.image;document.getElementById('hero-name').textContent=data.personal.name;document.getElementById('hero-title').textContent=data.personal.title;document.getElementById('footer-text').textContent=data.personal.footer;
 data.about.forEach(p=>{document.getElementById('about-content').innerHTML+=`<p class="text-lg md:text-xl leading-relaxed mb-6"><i class="fas fa-quote-left text-indigo-500 mr-2"></i>${p}</p>`});
