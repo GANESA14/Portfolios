@@ -1,0 +1,64 @@
+
+const data={personal:{name:"GANESHA",title:"Full Stack Developer",brand:"GANESA",image:"../profile.jpg",footer:"© 2025 Ganesha. All rights reserved."},about:["Passionate developer with over 5 years of experience in creating innovative digital solutions. I specialize in building scalable web applications and crafting intuitive user experiences that make a difference.","My approach combines technical expertise with creative problem-solving, always focusing on delivering high-quality results that exceed expectations. I thrive in collaborative environments and love bringing ideas to life through code."],focus:[{icon:"fa-code",title:"Web Development",desc:"Designing and developing modern, responsive, and high-performance websites using the latest web technologies.",color:"indigo"},{icon:"fa-laptop-code",title:"Software Development",desc:"Building reliable and scalable software solutions tailored to meet business and user needs.",color:"purple"},{icon:"fa-mobile-alt",title:"Mobile App Development",desc:"Creating fast, user-friendly mobile applications for Android and iOS with seamless performance.",color:"pink"}],skills:[{name:"JavaScript/TypeScript",percent:95,icon:"fa-js"},{name:"React/Next.js",percent:90,icon:"fa-react"},{name:"Node.js/Express",percent:88,icon:"fa-node"},{name:"UI/UX Design",percent:85,icon:"fa-figma"},{name:"Cloud & DevOps",percent:82,icon:"fa-aws"}],journey:[{title:"Senior Full Stack Developer",company:"Tech Solutions Inc.",period:"2022 - Present",desc:"Leading development of enterprise-scale applications, mentoring junior developers, and implementing best practices across the team.",color:"indigo",icon:"fa-briefcase"},{title:"Full Stack Developer",company:"Digital Innovations Ltd.",period:"2020 - 2022",desc:"Developed and maintained multiple client projects, focusing on responsive design and performance optimization.",color:"purple",icon:"fa-code"},{title:"Junior Developer",company:"StartUp Ventures",period:"2019 - 2020",desc:"Started my professional journey building web applications and learning modern development practices.",color:"pink",icon:"fa-laptop"}],
+
+
+
+
+projects:[{icon:"fa-shopping-cart",title:"E-Commerce Platform",desc:"Full-featured online shopping platform with payment integration and admin dashboard.",tags:["React","Node.js"],url:"https://ganesa14.github.io/APM",gradient:"from-indigo-500 to-purple-600"},{icon:"fa-comments",title:"Social Media App",desc:"Real-time social networking application with messaging and media sharing features.",tags:["Next.js","Socket.io"],url:"https://ganesha025.github.io/VTS/",gradient:"from-purple-500 to-pink-600"},
+{icon:"fa-chart-line",title:"Analytics Dashboard",desc:"Business intelligence dashboard with interactive charts and real-time data visualization.",tags:["React","D3.js"],
+url:"https://ganesa14.github.io/Supreme",gradient:"from-pink-500 to-red-600"}],
+
+
+social: [
+  { icon: "fa-whatsapp", link: "https://wa.me/yourNumber" },
+  { icon: "fa-instagram", link: "https://instagram.com/yourProfile" },
+  { icon: "fa-github", link: "https://github.com/yourUsername" },
+  { icon: "fa-briefcase", link: "https://in.indeed.com/profile/yourProfile" }
+]
+};
+const themeBtn=document.getElementById('theme-btn'),body=document.body;let isDark=true;themeBtn.addEventListener('click',()=>{isDark=!isDark;body.classList.toggle('dark');body.classList.toggle('light');themeBtn.innerHTML=isDark?'<i class="fas fa-moon"></i>':'<i class="fas fa-sun"></i>'});
+document.getElementById('nav-brand').textContent=data.personal.brand;document.getElementById('profile-img').src=data.personal.image;document.getElementById('hero-name').textContent=data.personal.name;document.getElementById('hero-title').textContent=data.personal.title;document.getElementById('footer-text').textContent=data.personal.footer;
+data.about.forEach(p=>{document.getElementById('about-content').innerHTML+=`<p class="text-lg md:text-xl leading-relaxed mb-6"><i class="fas fa-quote-left text-indigo-500 mr-2"></i>${p}</p>`});
+data.focus.forEach(f=>{document.getElementById('focus-grid').innerHTML+=`<div class="card gradient-border rounded-2xl p-8 border text-center"><div class="text-5xl mb-4 icon-hover"><i class="fas ${f.icon} text-${f.color}-400"></i></div><h3 class="text-2xl font-bold mb-4 text-${f.color}-400">${f.title}</h3><p>${f.desc}</p></div>`});
+data.skills.forEach(s=>{document.getElementById('skills-container').innerHTML+=`<div class="bg-slate-800 p-4 rounded-2xl shadow-lg hover:shadow-indigo-500/20 transition-all duration-300 mb-4"><div class="flex justify-between mb-2"><span class="font-semibold text-lg flex items-center"><i class="fab ${s.icon} text-indigo-400 mr-2"></i>${s.name}</span><span class="text-indigo-400 font-bold">${s.percent}%</span></div><div class="w-full bg-slate-700 rounded-full h-3 relative overflow-hidden"><div class="progress-glow absolute inset-0" data-width="${s.percent}"></div><div class="skill-bar bg-gradient-to-r from-indigo-500 to-purple-500 h-3 rounded-full relative z-10" data-width="${s.percent}"></div></div></div>`});
+data.journey.forEach((j,i)=>{const side=i%2===0?'left':'right',colors=['indigo','purple','pink'];document.getElementById('journey-container').innerHTML+=`<div class="journey-item grid md:grid-cols-2 gap-8 mb-16 relative" data-index="${i}" style="padding-top:${i*100}px"><div class="journey-pulse" style="top:${i*100+60}px"></div><div class="journey-dot" style="top:${i*100+60}px"><i class="fas ${j.icon} text-sm"></i></div><div class="${side==='left'?'md:order-1':'md:order-2'} ${side==='left'?'md:pr-8':'md:pl-8'}"><div class="card gradient-border rounded-2xl p-6 border border-l-4 border-l-${colors[i]}-500 h-full"><div class="flex items-start gap-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-${colors[i]}-500 to-${colors[i]}-700 flex items-center justify-center text-xl"><i class="fas ${j.icon}"></i></div><div class="flex-1"><h3 class="text-xl font-bold text-${colors[i]}-400 mb-2">${j.title}</h3><p class="font-semibold mb-1"><i class="fas fa-building mr-2 text-${colors[i]}-400"></i>${j.company}</p><p class="text-sm mb-2"><i class="fas fa-calendar mr-2"></i>${j.period}</p><p>${j.desc}</p></div></div></div></div><div class="${side==='left'?'md:order-2':'md:order-1'}"></div></div>`});
+data.projects.forEach(p=>{const tags=p.tags.map(t=>`<span class="tag px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-sm"><i class="fas fa-tag mr-1"></i>${t}</span>`).join('');document.getElementById('projects-grid').innerHTML+=`<div class="card gradient-border rounded-2xl overflow-hidden border project-card"><div class="relative"><iframe src="${p.url}" class="project-iframe" loading="lazy"></iframe><div class="project-overlay" onclick="window.open('${p.url}','_blank')"><div class="text-center"><i class="fas fa-external-link-alt text-4xl mb-3 text-indigo-400"></i><p class="text-xl font-bold">Open Project</p></div></div></div><div class="p-6"><div class="text-4xl mb-4 icon-hover text-center"><i class="fas ${p.icon} bg-gradient-to-br ${p.gradient} bg-clip-text text-transparent"></i></div><h3 class="text-xl font-bold mb-2">${p.title}</h3><p class="mb-4">${p.desc}</p><div class="flex gap-2 flex-wrap">${tags}</div></div></div>`});
+data.social.forEach(s=>{document.getElementById('social-links').innerHTML+=`<a href="${s.link}" class="social-icon" target="_blank"><i class="fab ${s.icon}"></i></a>`});
+const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,.1,1000),renderer=new THREE.WebGLRenderer({canvas:document.querySelector('#bg'),antialias:true,alpha:true});
+renderer.setPixelRatio(window.devicePixelRatio);renderer.setSize(window.innerWidth,window.innerHeight);camera.position.setZ(30);
+const geo=new THREE.TorusGeometry(10,3,16,100),mat=new THREE.MeshStandardMaterial({color:0x6366f1,wireframe:true}),torus=new THREE.Mesh(geo,mat);
+scene.add(torus);
+const light=new THREE.PointLight(0xffffff),ambient=new THREE.AmbientLight(0xffffff);
+light.position.set(20,20,20);scene.add(light,ambient);
+Array(200).fill().forEach(()=>{const g=new THREE.SphereGeometry(.25,24,24),m=new THREE.MeshStandardMaterial({color:0x8b5cf6}),star=new THREE.Mesh(g,m),[x,y,z]=[...Array(3)].map(()=>THREE.MathUtils.randFloatSpread(100));star.position.set(x,y,z);scene.add(star)});
+function animate(){requestAnimationFrame(animate);torus.rotation.x+=.01;torus.rotation.y+=.001;torus.rotation.z+=.01;renderer.render(scene,camera)}
+animate();
+function moveCamera(){const t=document.body.getBoundingClientRect().top;camera.position.z=30+t*-.01;camera.position.x=t*-.0002;camera.rotation.y=t*-.0002}
+document.body.onscroll=moveCamera;
+window.addEventListener('resize',()=>{camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight)});
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.getElementById('mobile-menu').classList.add('hidden');document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})}));
+const observerSkills=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.querySelectorAll('.skill-bar').forEach(b=>b.style.width=b.dataset.width+'%');el.target.querySelectorAll('.progress-glow').forEach(g=>g.style.width=g.dataset.width+'%')}})},{threshold:.5});
+observerSkills.observe(document.querySelector('#skills'));
+const observerSections=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.1});
+document.querySelectorAll('.section').forEach(s=>observerSections.observe(s));
+const journeyObserver=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');const idx=parseInt(el.target.dataset.index);const path=document.getElementById('journey-path');const totalItems=data.journey.length;const progress=((idx+1)/totalItems)*100;path.style.height=progress+'%'}})},{threshold:.3});
+document.querySelectorAll('.journey-item').forEach(item=>journeyObserver.observe(item));
+
+
+
+const quotes=[
+  "Talk is cheap. Show me the code.",
+  "First, solve the problem. Then, write the code.",
+  "Code is like humor. When you have to explain it, it’s bad.",
+  "Experience is the name everyone gives to their mistakes.",
+  "Programs must be written for people to read.",
+  "Simplicity is the soul of efficiency."
+];
+let i=0,j=0,del=false,t=document.getElementById("t");
+(function type(){
+  let cur=quotes[i];
+  t.textContent=cur.slice(0,del?--j:++j);
+  if(!del&&j===cur.length){del=true;setTimeout(type,2000)}
+  else if(del&&j===0){del=false;i=(i+1)%quotes.length;setTimeout(type,400)}
+  else setTimeout(type,del?50:100);
+})();
