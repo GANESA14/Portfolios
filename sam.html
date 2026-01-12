@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How I Work Section</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+<section class="py-16 px-4 md:px-16">
+  <div class="text-center mb-12">
+    <h2 class="text-4xl font-bold mb-2">How I Work</h2>
+    <p class="inline-flex items-center bg-gray-800 text-sm px-3 py-1 rounded-full">
+      <span class="mr-2">🤝</span> That's how I deal with problems
+    </p>
+  </div>
+
+  <div id="work-cards" class="grid grid-cols-1 md:grid-cols-4 gap-6"></div>
+</section>
+
+<script>
+  const workData = [
+    {
+      icon: "search",
+      title: "Understand the Problem",
+      description: "I analyze the problem deeply to identify the root causes and define clear goals.",
+      color: "text-blue-500"
+    },
+    {
+      icon: "lightbulb",
+      title: "Explore Solutions",
+      description: "I research industry best practices and brainstorm efficient approaches to solve it.",
+      color: "text-purple-500"
+    },
+    {
+      icon: "tool",
+      title: "Plan & Develop",
+      description: "I plan the structure and then write clean, scalable code with iterative improvements.",
+      color: "text-green-500"
+    },
+    {
+      icon: "check-circle",
+      title: "Test & Deliver",
+      description: "I rigorously test to ensure quality, then deliver the final product with documentation.",
+      color: "text-yellow-400"
+    }
+  ];
+
+  const container = document.getElementById("work-cards");
+
+  workData.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "bg-gray-800 p-6 rounded-xl shadow-lg flex flex-col items-start hover:scale-105 transform transition duration-300";
+
+    card.innerHTML = `
+      <div class="mb-4 text-3xl ${item.color}">
+        <i data-feather="${item.icon}"></i>
+      </div>
+      <h3 class="text-xl font-bold mb-2">${item.title}</h3>
+      <p class="text-gray-300 text-sm">${item.description}</p>
+    `;
+
+    container.appendChild(card);
+  });
+
+  // Initialize Feather icons
+  feather.replace();
+</script>
+
+</body>
+</html>
